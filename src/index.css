@@ -1,0 +1,227 @@
+body {
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+:root {
+  --portrait-board-width: 100svw;
+  --portrait-piece-width: calc(var(--portrait-board-width) / 7);
+  --portrait-font-size: 4svw;
+  --portrait-border-width: 0.5svw;
+  --portrait-border-radius: 2svw;
+  --landscape-board-height: 98.25svh;
+  --landscape-piece-width: calc(var(--landscape-board-height) / 7);
+  --landscape-font-size: 4svh;
+  --landscape-border-width: 0.5svh;
+  --landscape-border-radius: 2svh;
+}
+
+
+.game-container {
+  user-select: none;
+  display: block;
+  flex-direction: row;
+}
+
+.board-container {
+  display: block;
+  flex-direction: column;
+  margin: auto;
+  width: var(--portrait-board-width);
+}
+
+.move-bar, .board {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr); 
+  gap: 0px;
+  grid-auto-flow: column;
+  border-width: var(--portrait-border-width);
+  border-color: #fff;
+  border-style: solid;
+}
+
+.move-bar {
+  grid-template-rows: var(--portrait-piece-width);
+}
+
+.move-bar .piece {
+  outline-style: dashed;
+  outline-width: calc(var(--portrait-border-width) / 3);
+  opacity: 0;
+}
+
+.move-bar .piece:hover, .move-bar .piece:focus-visible {
+  opacity: 1;
+}
+
+.move-bar .piece.disabled {
+  cursor: default;
+}
+
+.move-bar .piece.disabled:hover {
+  opacity: 0.4;
+}
+
+.dropping .move-bar .piece, .dropping .move-bar .piece:hover, .winner .move-bar .piece, .winner .move-bar .piece:hover {
+  opacity: 0;
+}
+
+.board {
+  grid-template-rows: repeat(6, var(--portrait-piece-width)); 
+  background: #00f;
+  border-radius: var(--portrait-border-radius) var(--portrait-border-radius) 0 0;
+  border-color: #44f;
+  border-style: solid;
+}
+
+.board .piece:not(.empty), .board .piece.dropping {
+  box-shadow: inset 0px 0px 2svh rgba(0,0,0,0.7);  
+  outline-width: 0px;
+}
+
+.winner .board {
+  opacity: 0.7;
+}
+
+.info {
+  text-align: center;
+  display: flex;
+  flex-direction: row;
+  padding: 0.2svh;
+  margin-bottom: 5svh;
+}
+
+.info.Red {
+  background: #f00;
+  color: #fff;
+}
+
+.info.Yellow {
+  background: #ff0;
+  color: #000;
+}
+
+.info.empty {
+  background: #ccc;
+  color: #000;
+}
+
+.info p {
+  margin: 1svh;
+  flex: 0.5;
+}
+
+.info button {
+  flex: 0.5;
+  cursor: pointer;
+  background: #eee;
+  margin: 0;
+  border: 0;
+  text-transform: uppercase;
+}
+
+.info button:active {
+  background: #ccc;
+}
+
+.info p, .info button {
+  padding: 1svw;
+  font-size: 4svw;
+}
+
+
+.piece {
+  margin: 5%;
+  border-radius: var(--portrait-piece-width);
+  cursor: pointer;
+  border: none;
+  padding: 0;
+  caret-color: transparent;
+}
+
+.piece:after {
+  opacity: 0.3;
+  text-align: center;
+  display: block;
+  font-size: calc(var(--portrait-piece-width) / 2.5);
+  padding: 0;
+}
+
+.piece.empty {
+  background: #fff;
+}
+
+.piece.Red, .piece.dropping-Red {
+  background: #f00;
+  outline-color: #f00;
+}
+
+.piece.Red:after, .piece.dropping-Red:after {
+  content: 'R';
+}
+
+.piece.Yellow, .piece.dropping-Yellow {
+  background: #ff0;
+  outline-color: #ff0;
+}
+
+.piece.Yellow:after, .piece.dropping-Yellow:after {
+  content: 'Y';
+}
+
+@media (min-aspect-ratio: 1.3/1) {
+  .game-container {
+    display: flex;
+  }
+
+  .board-container {
+    display: flex;
+    width: var(--landscape-board-height);
+  }
+
+  .move-bar, .board {
+    border-width: var(--landscape-border-width);
+  }
+
+  .board {
+    grid-template-rows: repeat(6, var(--landscape-piece-width));
+    border-radius: var(--landscape-border-radius) var(--landscape-border-radius) 0 0;
+  }
+
+  .move-bar {
+    grid-template-rows: var(--landscape-piece-width);
+  }
+
+  .info {
+    display: block;
+    width: 25svw;
+    text-align: center;
+    padding: 2svh;
+    margin-bottom: 0;
+  }
+
+  .info p, .info button {
+    padding: 2.5svh;
+    font-size: 5svh;
+  }
+
+  .info button {
+    border-radius: 2.5svh;
+  }
+
+  .info p {
+    margin-bottom: 5svh;
+  }
+
+  .piece {
+    border-radius: var(--landscape-piece-width);
+  }
+
+  .piece:after {
+    font-size: calc(var(--landscape-piece-width) / 2.5);
+  }
+}
