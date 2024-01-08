@@ -1,15 +1,15 @@
 {
   "files": {
-    "main.css": "/static/css/main.34f24156.css",
-    "main.js": "/static/js/main.71d9e425.js",
-    "static/js/787.a44b61b6.chunk.js": "/static/js/787.a44b61b6.chunk.js",
-    "index.html": "/index.html",
-    "main.34f24156.css.map": "/static/css/main.34f24156.css.map",
-    "main.71d9e425.js.map": "/static/js/main.71d9e425.js.map",
-    "787.a44b61b6.chunk.js.map": "/static/js/787.a44b61b6.chunk.js.map"
+    "main.css": "/connect-four/static/css/main.34f24156.css",
+    "main.js": "/connect-four/static/js/main.d5f2563a.js",
+    "static/js/787.a44b61b6.chunk.js": "/connect-four/static/js/787.a44b61b6.chunk.js",
+    "index.html": "/connect-four/index.html",
+    "main.34f24156.css.map": "/connect-four/static/css/main.34f24156.css.map",
+    "main.d5f2563a.js.map": "/connect-four/static/js/main.d5f2563a.js.map",
+    "787.a44b61b6.chunk.js.map": "/connect-four/static/js/787.a44b61b6.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.34f24156.css",
-    "static/js/main.71d9e425.js"
+    "static/js/main.d5f2563a.js"
   ]
 }
